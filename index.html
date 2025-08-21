@@ -9,4 +9,131 @@
     <meta name="theme-color" content="#d50000" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <!-- ... existing code ... -->
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#" aria-label="Vision Bikes">
+          <img src="./portfolio/logo/ducati_id.png" alt="Vision Bikes" height="28" />
+        </a>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+        <nav class="nav" aria-label="Primary">
+          <ul>
+            <li><a href="#models">Models</a></li>
+            <li><a href="#why-us">Why us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="cta" href="#contact">Get a quote</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-slides">
+          <div id="hero-slide-a" class="slide"></div>
+          <div id="hero-slide-b" class="slide"></div>
+        </div>
+        <div class="hero-bg"></div>
+        <div class="container hero-inner">
+          <h1>Performance that ignites your <span>passion</span></h1>
+          <p>Premium motorcycles, gear, and service — built for riders who demand more.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#models">Explore models</a>
+            <a class="btn ghost" href="#contact">Talk to sales</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="models" class="container">
+        <div class="section-header">
+          <h2>Popular models</h2>
+          <p>Hand-picked machines engineered for exhilaration and control.</p>
+        </div>
+        <div class="grid cards">
+          <article class="card">
+            <div class="card-media gradient orange" data-img-candidates="./portfolio/image/Panigale-V4-7G-MY25-Model-Blocks-3-4-630x390.png"></div>
+            <div class="card-body">
+              <h3>Panigale V4</h3>
+              <p>Track-bred superbike with relentless acceleration.</p>
+              <a class="link" href="#contact">Request details</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media gradient ember" data-img-candidates="./portfolio/image/MY24-Multistrada-V4-RS-Model-Blocks-3-4-630x390.png"></div>
+            <div class="card-body">
+              <h3>Multistrada V4 RS</h3>
+              <p>Go-anywhere touring with superbike DNA.</p>
+              <a class="link" href="#contact">Request details</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media gradient steel" data-img-candidates="./portfolio/image/Scrambler-Icon-Dark-MY25-Model-Blocks-3-4-630x390.png"></div>
+            <div class="card-body">
+              <h3>Scrambler Icon Dark</h3>
+              <p>Pure fun with a minimalist, urban attitude.</p>
+              <a class="link" href="#contact">Request details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="why-us" class="container why-us">
+        <div class="section-header">
+          <h2>Why choose Vision Bikes</h2>
+          <p>We obsess over the details so you can focus on the ride.</p>
+        </div>
+        <div class="grid features">
+          <div class="feature">
+            <div class="icon">⚙️</div>
+            <h3>Factory-certified service</h3>
+            <p>Expert technicians, genuine parts, meticulous care.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🛡️</div>
+            <h3>Extended protection</h3>
+            <p>Flexible coverage to keep you on the road.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🏁</div>
+            <h3>Track support</h3>
+            <p>Setup advice and coaching for faster lap times.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🚚</div>
+            <h3>White-glove delivery</h3>
+            <p>From our showroom to your garage, handled with care.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="container">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Tell us what you ride and how we can help.</p>
+        </div>
+        <p>Email: <a class="link" href="mailto:sales@visionbikes.example">sales@visionbikes.example</a></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          <strong>Vision Bikes</strong>
+          <span class="muted">Performance motorcycles & accessories</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <ul>
+            <li><a href="#models">Models</a></li>
+            <li><a href="#why-us">Why us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container" style="padding-bottom:20px">
+        <small class="muted">© <span id="year"></span> Vision Bikes. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
