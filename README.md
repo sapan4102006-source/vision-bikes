@@ -1,11 +1,22 @@
+# Vision Bikes – Static Site
 
-  # Vision Bikes Website
+This repository now contains a simplified, optimized static website (HTML/CSS/JS only). No external images or fonts are used. All UI is built with CSS, gradients, and inline SVGs.
 
-  This is a code bundle for Vision Bikes Website. The original project is available at https://www.figma.com/design/czPQvTVLC01fISx5Bhwv6Q/Vision-Bikes-Website.
+## Structure
 
-  ## Running the code
+- `index.html` – Main page
+- `styles.css` – Global styles
+- `script.js` – Small enhancements (mobile nav, smooth scroll, header shadow)
+- `netlify.toml` – Publishes from repo root with no build step
+- `_headers` – Security and caching headers
 
-  Run `npm i` to install the dependencies.
+Optionally add your images to an `images/` folder and reference them from `index.html`.
 
-  Run `npm run dev` to start the development server.
-  
+## Deploying to Netlify
+
+No build is needed. Netlify picks up `netlify.toml`:
+
+- Build command: (empty)
+- Publish directory: `.`
+
+Just connect the repo and deploy.
