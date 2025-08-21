@@ -56,12 +56,10 @@ document.addEventListener('click', (e) => {
 // Hero slider using only local images if available
 (() => {
   const candidates = [
-    '/images/poster/hero-1.jpg',
-    '/images/poster/hero-2.jpg',
-    '/images/poster/hero-3.jpg',
-    '/images/poster/hero-1.webp',
-    '/images/poster/hero-2.webp',
-    '/images/poster/hero-3.webp',
+    './portfolio/poster/en.jpg',
+    './portfolio/poster/en (1).jpg',
+    './portfolio/poster/en (2).jpg',
+    './portfolio/poster/2.jpg',
   ];
 
   const existing = [];
