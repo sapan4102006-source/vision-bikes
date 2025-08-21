@@ -2,6 +2,8 @@ const header = document.querySelector('.site-header');
 const nav = document.querySelector('.nav');
 const toggle = document.querySelector('.menu-toggle');
 const year = document.getElementById('year');
+const slideA = document.getElementById('hero-slide-a');
+const slideB = document.getElementById('hero-slide-b');
 
 if (year) year.textContent = new Date().getFullYear();
 
@@ -50,4 +52,81 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+// Hero slider using only local images if available
+(() => {
+  const candidates = [
+    '/images/poster/hero-1.jpg',
+    '/images/poster/hero-2.jpg',
+    '/images/poster/hero-3.jpg',
+    '/images/poster/hero-1.webp',
+    '/images/poster/hero-2.webp',
+    '/images/poster/hero-3.webp',
+  ];
+
+  const existing = [];
+  const checkImage = (src) => new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve({ src, ok: true });
+    img.onerror = () => resolve({ src, ok: false });
+    img.src = src;
+  });
+
+  const init = async () => {
+    if (!slideA || !slideB) return;
+    const results = await Promise.all(candidates.map(checkImage));
+    results.forEach(r => { if (r.ok) existing.push(r.src); });
+    if (existing.length === 0) return; // No local images found, keep gradient-only hero
+
+    let i = 0;
+    const get = (n) => existing[n % existing.length];
+    slideA.style.backgroundImage = `url('${get(0)}')`;
+    slideA.classList.add('active');
+    if (existing.length > 1) {
+      slideB.style.backgroundImage = `url('${get(1)}')`;
+      let showA = false;
+      setInterval(() => {
+        showA = !showA;
+        const next = get(++i);
+        if (showA) {
+          slideA.style.backgroundImage = `url('${next}')`;
+          slideA.classList.add('active');
+          slideB.classList.remove('active');
+        } else {
+          slideB.style.backgroundImage = `url('${next}')`;
+          slideB.classList.add('active');
+          slideA.classList.remove('active');
+        }
+      }, 5000);
+    }
+  };
+  init();
+})();
+
+// Progressive card media: try local images from data-img-candidates, else keep gradient
+(() => {
+  const mediaEls = document.querySelectorAll('.card-media[data-img-candidates]');
+  const tryCandidates = async (el) => {
+    const list = (el.getAttribute('data-img-candidates') || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+    for (const src of list) {
+      const ok = await new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = src;
+      });
+      if (ok) {
+        el.style.backgroundImage = `url('${src}')`;
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundPosition = 'center';
+        el.style.filter = 'saturate(1.02)';
+        return;
+      }
+    }
+  };
+  mediaEls.forEach(el => { tryCandidates(el); });
+})();
 
